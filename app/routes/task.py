@@ -59,10 +59,6 @@ def remove_task_by_id(task_id):
     return jsonify({"error": f"can't find task with the id : {task_id}"})
 
 
-@task_bp.errorhandler(404)
-def not_found(error):
-    return jsonify({"error": "Ressource non trouvée"}), 404
-
 @task_bp.route('/task/search',methods=['GET'])
 def search_task():
     name = request.args.get('q','')
